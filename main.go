@@ -85,7 +85,7 @@ func main() {
 	// initialize repositories and services
 	couponRepo := repository.NewCouponRepository(pool)
 	couponService := service.NewCouponService(couponRepo, redisClient)
-	couponHandler := handler.NewCouponHandler(*couponService)
+	couponHandler := handler.NewCouponHandler(couponService)
 
 	// routes
 	api := e.Group("/api/v1")
